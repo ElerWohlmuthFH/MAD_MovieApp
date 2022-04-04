@@ -15,7 +15,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.mad_movieapp.models.Movie
 import com.example.mad_movieapp.models.getMovies
 import com.example.mad_movieapp.widgets.MovieRow
-import com.example.mad_movieapp.widgets.HorizontalScrollImageView
+import com.example.mad_movieapp.widgets.HorizontalScrollableImageView
 
 @Preview(showBackground = true)
 @Composable
@@ -56,7 +56,7 @@ fun MainContent (movie: Movie){
             Spacer(modifier = Modifier.height(8.dp))
             Divider()
             Text(text = movie.title, style = MaterialTheme.typography.h5)
-            HorizontalScrollImageView(movie = movie)
+            HorizontalScrollableImageView(movie = movie)
         }
     }
 }

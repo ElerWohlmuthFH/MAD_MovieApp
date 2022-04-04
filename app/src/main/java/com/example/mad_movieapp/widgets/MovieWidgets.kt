@@ -75,38 +75,29 @@ fun MovieRow(movie: Movie,
                 }
                 DropdownMenu(expanded = info, onDismissRequest = { info = false }) {
                     DropdownMenuItem(onClick = { /*TODO*/ }) {
-                        Column() {
+                        Column {
 
-                            Column(
-                                modifier = Modifier.padding(10.dp)
-                            ) {
-                                Text("Plot: " + movie.plot, Modifier.fillMaxWidth())
+                            Column {
+                                Text("Plot: " + movie.plot, Modifier.fillMaxSize())
                                 Divider(startIndent = 5.dp)
-                                Text("Genre: " + movie.genre, Modifier.fillMaxWidth())
-                                Text("Actors: " + movie.actors, Modifier.fillMaxWidth())
-                                Text("Rating: " + movie.rating, Modifier.fillMaxWidth())
+                                Text("Genre: " + movie.genre, Modifier.fillMaxSize())
+                                Text("Actors: " + movie.actors, Modifier.fillMaxSize())
+                                Text("Rating: " + movie.rating, Modifier.fillMaxSize())
                             }
                         }
                     }
                 }
-
-                Icon(imageVector = if (info) {
-                    Icons.Default.KeyboardArrowUp
-                } else {
-                    Icons.Default.KeyboardArrowDown
-                },
-                    contentDescription = "arrowDown",
-                    Modifier.clickable { info = !info })
             }
         }
     }
 }
 
 @Composable
-fun HorizontalScrollImageView(movie: Movie = getMovies()[0]){
+fun HorizontalScrollableImageView(movie: Movie = getMovies()[0]){
     LazyRow{
 
-        items(movie.images){ image -> Card(
+        items(movie.images){ image ->
+            Card(
                 modifier = Modifier.padding(12.dp).size(240.dp),
                 elevation = 4.dp
             ) {
